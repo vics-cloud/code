@@ -1,0 +1,83 @@
+Prompt: Vytvoř dokonalý klon GitBook.io homepage pomocí Vite + Lit
+
+Název projektu: GitBook Clone — Moderní, Responzivní Dokumentační Portál
+Cíl: Vytvořit věrnou repliku úvodní stránky GitBook.io (https://www.gitbook.com/) s moderním designem, responzivitou a interaktivními prvky pomocí Vite + Lit.
+
+Základní požadavky:
+Technologie:
+⚡ Vite jako build tool (TypeScript template).
+🧩 Lit pro tvorbu webových komponent (Lit Element, lit-html).
+🎨 Tailwind CSS pro styling (s custom theme pro přesné napodobení GitBook branding).
+🚀 Rychlost: Optimalizace pro Lighthouse (100/100 Performance, SEO, Accessibility).
+Klíčové sekce (1:1 s GitBook.io):
+Hero sekce:
+Velký nadpis "Where teams document and share knowledge" + subheader.
+2x CTA tlačítka ("Start for free" + "View demo") s hover efekty.
+Animovaný gradientní pozadí (jako na GitBook).
+Features sekce:
+3-4 sloupce s ikonami a textem (např. "Collaborate", "Knowledge Management", "Integrations").
+Hover efekty na kartách, konzistentní s GitBook designem.
+Code/Demo sekce:
+Interaktivní ukázka editoru (statický obrázek/placeholder s faux-code syntax highlighting).
+Footer:
+Odkazy na blog, dokumentaci, sociální sítě + copyright.
+Responsivita:
+Mobile-first přístup.
+Hamburger menu pro mobilní verzi (pokud je v originálu).
+Optimalizace obrázků (WebP/AVIF).
+Interaktivita:
+Smooth scroll pro anchor odkazy.
+Dark/light theme toggle (pokud jej GitBook aktuálně používá).
+Mikroanimace (např. při najetí na tlačítka/feature karty).
+
+Technické detaily:
+Nastavení projektu:
+bashCopy
+npm create vite@latest gitbook-clone -- --template lit-ts
+Instalace Tailwind CSS podle oficiální dokumentace.
+Přidat eslint-plugin-lit pro lintování komponent.
+Komponenty:
+tsCopy
+// Příklad: FeatureCard komponenta
+@customElement('feature-card')
+class FeatureCard extends LitElement {
+  @property({ type: String }) icon = '';
+  @property({ type: String }) title = '';
+  @property({ type: String }) description = '';
+
+  render() {
+    return html`
+      <div class="p-6 rounded-xl bg-white shadow-lg hover:shadow-xl transition-shadow">
+        <img src=${this.icon} alt="icon" class="w-12 h-12 mb-4">
+        <h3 class="text-xl font-semibold mb-2">${this.title}</h3>
+        <p class="text-gray-600">${this.description}</p>
+      </div>
+    `;
+  }
+}
+Styling:
+Přesná paleta barev z GitBook (např. primární barva #3A4F9A).
+Google Fonts: Inter font dle originálu.
+Routing:
+Single Page App (žádné komplexní routování, stačí anchor links).
+
+Dodatečné požadavky:
+SEO Optimalizace:
+Semantický HTML5 ( <header>, <section>, <article>).
+Meta tagy: description, OG obrázky.
+Přístupnost:
+ARIA labels pro interaktivní prvky.
+Kontrast barev dle WCAG 2.1.
+Code Quality:
+Prettier + Husky pre-commit hooky.
+Žádné any typy v TypeScriptu.
+
+Dodávka:
+Zdrojový kód na GitHubu (veřejný repo).
+Návod pro npm run dev / npm run build.
+README.md s screenshoty a popisem funkcí.
+
+Inspirace:
+Aktuální GitBook homepage (12.2023 design).
+https://www.11ty.dev/ (podobný minimalistický styl dokumentace).
+"Cílem je vytvořit tak přesný klon, aby uživatelé nepoznali rozdíl oproti originálu!" 🎯
